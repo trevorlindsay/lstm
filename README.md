@@ -49,22 +49,6 @@ The model is run and built based on the information in the configuration file. I
 13. `Model::NumCores::` - number of CPU cores to use when running model (if not specified, will be set to max available)
 
 
-## Using Compute Framework with EC2 Instance
-
-### Submitting Jobs
-1. Ensure version of model you wish to run is in the <code>job</code> folder
-2. Run <code>bash scripts/submit</code> (Note: the script won't work if you run it from within the <code>scripts</code> folder!)
-
-### Checking Log of Active Job
-1. Run <code>bash scripts/log</code> (Note: the script won't work if you run it from within the <code>scripts</code> folder!)
-2. When prompted, enter the calc id for the job then enter the number of lines you'd like to see
-
-### Retrieving the Results of Finished Job
-1. Run <code>bash scripts/result</code> (Note: the script won't work if you run it from within the <code>scripts</code> folder!)
-2. When prompted, enter the calc id for the job
-3. New folder will be created in <code>~/compute_framework_results/</code> with the name <code>calcxxxx</code> (where xxxx will be the calc id)
-4. The folder will also be copied to the <code>results</code> folder in the repo
-
 ## Using Tensorboard Summaries
 Whenever a model is run, it will produce summaries that can be viewed with Tensorboard. The summaries track two scalar values (mean squared error and r-squared) while the model trains.
 
