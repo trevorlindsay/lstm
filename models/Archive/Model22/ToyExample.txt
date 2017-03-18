@@ -1,0 +1,9 @@
+Data::../../data/simple.csv   #path to csv input data
+OutputInSample::results/trnSampleResults.csv  #paths to csv output predictions
+OutputOutSample::results/tstSampleResults.csv
+Target::target1 #target column name
+Features::timeindex,id1,feature1,feature2
+StartInSample::1 #in sample and out sample indexes # Comment
+EndInSample::3
+StartOutSample::4
+EndOutSample::6

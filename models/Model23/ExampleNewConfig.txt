@@ -1,0 +1,33 @@
+# Format for new config file
+
+Data::Input::../../data/template_dataset.csv # path to csv input data
+Data::AlphaDirectory::results/predictions.csv # directory to put output of predictions when model read from file
+Data::OutputInSample::results/trnSampleResults.csv # path to csv output predictions
+Data::OutputOutSample::results/tstSampleResults.csv # path to csv output predictions
+
+Data::Id::id1 # instrument id column
+Data::Time::timeindex # time column
+Data::Weight::risk # column to use for sample weights
+Data::Target::target13 # target column to predict
+Data::NumericalFeatures::risk,feature1,feature103,feature104,feature118,feature144,feature152,feature160,feature170,feature171,feature174,feature177,feature18,feature182,feature184,feature187,feature189,feature193,feature199,feature202,feature206,feature215,feature231,feature257,feature278,feature28,feature280,feature281,feature284,feature285,feature293,feature295,feature317,feature325,feature361,feature376,feature385,feature390,feature394,feature395,feature402,feature406,feature407,feature410,feature413,feature416,feature419,feature435,feature44,feature449,feature45,feature452,feature454,feature459,feature463,feature465,feature469,feature47,feature477,feature484,feature485,feature489,feature495,feature502,feature503,feature506,feature518,feature524,feature529,feature540,feature544,feature555,feature558,feature57,feature577,feature579,feature595,feature599,feature60,feature600,feature601,feature607,feature616,feature624,feature650,feature656,feature658,feature660,feature663,feature668,feature669,feature674,feature676,feature677,feature69,feature698,feature704,feature714,feature730,feature735,feature736,feature746,feature752,feature756,feature758,feature76,feature760,feature767,feature770,feature771,feature776,feature780,feature781,feature787,feature793,feature794,feature798,feature799,feature80,feature808,feature811,feature812,feature816,feature824,feature827,feature828,feature833,feature84,feature845,feature848,feature849,feature854,feature856,feature861,feature865,feature869,feature878,feature89,feature891,feature897,feature899,feature900,feature906,feature910,feature911,feature917,feature920,feature922,feature928,feature929,feature933,feature935,feature94,feature940,feature941,feature951,feature968 # list of numerical features (including timeindex and instrument id)
+Data::CategoricalFeatures::category0 # list of categorical features
+Data::StartInSample::1012 # time index of where to begin in-sample
+Data::EndInSample::1014 # time index of where to end in-sample
+Data::StartOutSample::1015 # time index of where to begin out-sample
+Data::EndOutSample::1016 # time index of where to end out-sample
+
+Model::OutputDirectory::model # directory to save model
+#Model::InputDirectory::model/model.model # only include if reading model from file
+
+Model::RNN::150,75 # number of neurons in each of the model’s RNN layers
+Model::Dense::50,30,15,1 # number of neurons in each of the model’s fully-connected layers
+Model::Activation::tanh # activation function to use (MUST BE ONE OF THESE: tanh, relu, sigmoid, softmax)
+Model::LearningRate::0.001 # learning rate for Adam optimizer
+Model::NumEpochs::50 # number of epochs for training
+Model::BatchSize::75 # number of instruments to feed through model at once
+Model::StepSize::-1 # number of timesteps to train model on at once (set to -1 to use the max available)
+Model::KeepProb::0.75 # dropout probability between layers
+Model::InitScale::0.04 # max of range for initializing weights
+Model::MaxGradNorm::10 # max allowed gradient, anything above clipped to this value
+Model::NumCores::48 # number of CPU cores to use when running model (if not specified, will be set to max available)
+
