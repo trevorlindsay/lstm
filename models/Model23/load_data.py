@@ -225,7 +225,7 @@ def getMaxGroupSize(frames):
 
     # Determine which instrument has the max number of timesteps -- the number of timesteps will be max_steps
     max_steps = [Counter(zip(*frame.index.values.tolist())[1]).most_common()[0][-1] for frame in frames]
-    return np.max(max_steps
+    return np.max(max_steps)
 
 
 
